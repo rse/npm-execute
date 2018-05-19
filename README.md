@@ -16,7 +16,7 @@ Abstract
 This is a tiny [Node](https://nodejs.org/) module for cross-platform
 executing Node Package Manager (NPM) from within Node. It especially
 works-around the problem that under Windows executing a `*.cmd` script
-from within Node requires a longer time to proceeed.
+from within Node requires a longer time to proceed.
 
 Installation
 ------------
