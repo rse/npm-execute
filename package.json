@@ -2,7 +2,7 @@
     "name":        "npm-execute",
     "homepage":    "http://github.com/rse/npm-execute",
     "description": "Execute NPM from within Node",
-    "version":     "0.9.1",
+    "version":     "0.9.2",
     "license":     "MIT",
     "author": {
         "name":    "Ralf S. Engelschall",
