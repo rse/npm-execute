@@ -31,7 +31,7 @@ const { getInstalledPath } = require("get-installed-path")
 const execa                = require("execa")
 
 /*  the API function  */
-module.exports = async (args, opts) => {
+module.exports = async (args, opts = {}) => {
     let promise
     if (isWindows()) {
         /*  Windows is a nasty situation: a call to the "npm.cmd" wrapper
