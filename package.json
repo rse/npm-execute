@@ -23,7 +23,7 @@
     "dependencies" : {
         "is-windows":         "1.0.2",
         "get-installed-path": "4.0.8",
-        "execa":              "0.10.0"
+        "execa":              "1.0.0"
     },
     "engines": {
         "node":               ">=8.0.0"
