@@ -28,6 +28,7 @@ const path                 = require("path")
 /*  external requirements  */
 const isWindows            = require("is-windows")
 const { getInstalledPath } = require("get-installed-path")
+const globalModules        = require("global-modules")
 const execa                = require("execa")
 
 /*  the API function  */
@@ -38,8 +39,14 @@ module.exports = async (args, opts = {}) => {
             script would work, but waits about a minute in total, because
             Node seems to not know when the stdout/stderr handles close.
             As a work-around we run "node" on the "npm-cli.js" directly.  */
-        let node   = process.execPath
-        let npmdir = await getInstalledPath("npm")
+        let node = process.execPath
+        let npmdir = await getInstalledPath("npm", {
+            paths: [
+                path.join(process.cwd(), "node_modules"),                  /* locally   */
+                globalModules,                                             /* globally  */
+                path.join(path.dirname(process.execPath), "node_modules")  /* installed */
+            ]
+        })
         let npmjs  = path.join(npmdir, "bin", "npm-cli.js")
         promise = execa(node, [ npmjs ].concat(args), opts)
     }
